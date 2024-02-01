@@ -10,6 +10,13 @@
             background-color: black;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+        }
+        label, h1, p{
+            font-family: sans-serif;
+        }
+        .margin-0{
+            margin: 0;
         }
         .flex{
             display: flex;
@@ -20,6 +27,10 @@
         .inline-flex{
             display: inline-flex;
         }
+        .margin-left-auto{
+            margin-left: auto;
+        }
+        
 
         .main-div{
             width: 100%;
@@ -37,6 +48,9 @@
             width: 100%;
         }
 
+        .form{
+            gap: 1rem;
+        }
         .card-info{
             justify-content:start;
             gap: 2%;
@@ -69,7 +83,30 @@
         }
 
 
+        .payment-method{
+            flex: 0 1 45%;
+        } 
+        .comments{
+            flex:0 1 45%;
+        }
 
+        .choices{
+            background-color: gray;
+            flex: 1 0 30%;
+            gap: 1rem;
+            align-items: center;
+        }
+        .image{
+            height: 2rem;
+            object-fit: contain;
+        }
+        text{
+            height: 2rem;
+        }
+
+        .form-footer{
+            justify-content: end;
+        }
     </style>
 </head>
 <body>
@@ -81,52 +118,77 @@
             <div class="error-message">
                 <p>Some fields are missing</p>
             </div>
-            <div class="card-info flex">
-                <div class="number-info flex flex-column">
-                    <label for="card-number" >Card #</label>
-                    <input type="number" id="number" maxlength="16">
-                </div>
-                <div class="cvc-info flex flex-column">
-                    <label for="card-cvc">CVC #</label>
-                    <input type="number" id="card-cvc" maxlength="4">
-                </div>
-                <div class="payment-info flex flex-column">
-                    <label for="payment-amount">Ammount</label>
-                    <input type="number" id="payment-amount">
-                </div>
-            </div>
-            <div class="personal-info flex flex-column">
-                <div class="name-info flex">
-                    <div class="first-name flex flex-column">
-                        <label for="first-name">First Name</label>
-                        <input type="text" id="first-name">
+            <form class="flex flex-column form">
+                <div class="card-info flex">
+                    <div class="number-info flex flex-column">
+                        <label for="card-number" >Card #</label>
+                        <input type="number" id="number" maxlength="16">
                     </div>
-                    <div class="last-name flex flex-column">
-                        <label for="last-name">Last Name</label>
-                        <input type="text" id="last-name">
+                    <div class="cvc-info flex flex-column">
+                        <label for="card-cvc">CVC #</label>
+                        <input type="number" id="card-cvc" maxlength="4">
+                    </div>
+                    <div class="payment-info flex flex-column">
+                        <label for="payment-amount">Ammount</label>
+                        <input type="number" id="payment-amount">
                     </div>
                 </div>
-                <div class="billing-info flex inline-flex">
-                    <div class="city-info flex inline-flex flex-column">
-                        <label for="city-info">City</label>
-                        <input type="text" id="city-info">
+                <div class="personal-info flex flex-column">
+                    <div class="name-info flex">
+                        <div class="first-name flex flex-column">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name">
+                        </div>
+                        <div class="last-name flex flex-column">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name">
+                        </div>
                     </div>
-                    <div class="state-info flex inline-flex flex-column">
-                        <label for="state-info">Select a State</label>
-                        <select name="state" id="state-info">
-                            <option value="">--Select your state--</option>
-                            <option value="Florida">FL</option>
-                            <option value="NewYork">NY</option>
-                            <option value="California">CA</option>
-                            <option value="Alabama">AL</option>
-                        </select>
+                    <div class="billing-info flex">
+                        <div class="city-info flex flex-column">
+                            <label for="city-info">City</label>
+                            <input type="text" id="city-info">
+                        </div>
+                        <div class="state-info flex flex-column margin-left-auto">
+                            <label for="state-info">Select a State</label>
+                            <select name="state" id="state-info">
+                                <option value="">--Select your state--</option>
+                                <option value="Florida">FL</option>
+                                <option value="NewYork">NY</option>
+                                <option value="California">CA</option>
+                                <option value="Alabama">AL</option>
+                            </select>
+                        </div>
+                        <div class="postal-code-info flex flex-column">
+                            <label for="postal-code">Postal Code</label>
+                            <input type="number" id="postal-code" maxlength="5">
+                        </div>
                     </div>
-                    <div class="postal-code-info flex inline-flex flex-column">
-                        <label for="postal-code">Postal Code</label>
-                        <input type="number" id="postal-code" maxlength="5">
+                    <div class="flex">  
+                        <div class="payment-method flex flex-column">
+                            <div clas="payment-options flex flex-column">
+                                <p class="margin-0">We Accept:</p>
+                                <div class="choices flex">
+                                    <input type="radio" id="visa" name="card-type">
+                                    <label for="visa"><img class="image" src="icons/visaicon.png"></label>
+                                    <input type="radio" id="mastercard" name="card-type">
+                                    <label for="mastercard"><img class="image" src="icons/mastercardlogo.png"></label>    
+                                    <input type="radio" id="applepay" name="card-type">
+                                    <label for="applepay"><img class="image" src="icons/applepayicon.png"></label>                            
+                                </div>    
+                            </div>
+                        </div>
+                        <div class="comments flex flex-column margin-left-auto">
+                            <label for="message">Write a comment</label>
+                            <textarea class="text" id="message"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="form-footer flex">
+                    <input type="button" value="Cancel">
+                    <input type="button" value="Send">
+                </div>
+            </form>    
         </div>
     </div>
 </body>
